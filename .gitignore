@@ -2,3 +2,7 @@
 *.vcd
 __pycache__/
 build/
+
+# Client outputs
+*.csv
+*.txt

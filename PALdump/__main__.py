@@ -27,7 +27,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     p_action = parser.add_subparsers(dest="action")
     p_action.add_parser("bitstream")
-    p_action.add_parser("client")
+
+    c_args = p_action.add_parser("client")
+    c_args.add_argument("--csv", action="store_true")
+    c_args.add_argument("port")
+    c_args.add_argument("out_file")
 
     args = parser.parse_args()
     if args.action == "bitstream":
@@ -38,4 +42,4 @@ if __name__ == "__main__":
         p.toolchain_program(products, "top")
 
     if args.action == "client":
-        pass
+        client.do_PALdump(args.csv, args.port, args.out_file)
