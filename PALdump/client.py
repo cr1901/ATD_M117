@@ -20,18 +20,18 @@ def csv_row(inp, out):
         "A19",
         "Delayed /SMEM{R,W}",
         "/REFRESH",
-        "/SMEMR",
-        "/SMEMW"
+        "/SMEMW",
+        "/SMEMR"
     ]
 
     out_map = [
-        "DRAM A8 All Banks",
-        "/CAS Bank 3",
-        "/CAS Bank 2",
-        "/CAS Bank 1",
-        "Data Bus Direction",
+        "/WE All Banks",
         "/RAS All Banks",
-        "/WE All Banks"
+        "Data Bus Direction",
+        "/CAS Bank 1",
+        "/CAS Bank 2",
+        "/CAS Bank 3",
+        "DRAM A8 All Banks"
     ]
 
     if inp is None or out is None:
