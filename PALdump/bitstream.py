@@ -1,4 +1,5 @@
 from amaranth import *
+from amaranth.lib.cdc import ResetSynchronizer
 from amaranth.sim import Simulator
 
 class UARTOut(Elaboratable):
@@ -117,9 +118,42 @@ def sim_uart():
         sim.run()
 
 
+class ClockResetGen(Elaboratable):
+    def __init__(self, reset=255):
+        self.reset = reset
+
+    def elaborate(self, platform):
+        clk = platform.request("clk12", 0)
+        rst_button = platform.request("button", 0)
+        delay = Signal(range(256), reset=255)
+
+        ###
+
+        m = Module()
+        cd_por  = ClockDomain(reset_less=True)
+        cd_sync = ClockDomain()
+        m.domains += cd_por, cd_sync
+
+        # clk
+        m.d.comb += ClockSignal("por").eq(clk)
+        m.d.comb += ClockSignal().eq(cd_por.clk)
+
+        # reset
+        rst_signal = Signal()
+        m.submodules.reset_sync = ResetSynchronizer(rst_signal, domain="sync")
+        m.d.comb += rst_signal.eq(rst_button | delay != 0)
+
+        # POR logic
+        with m.If(delay != 0):
+            m.d.por += delay.eq(delay - 1)
+
+        return m
+
+
 class PALDumpCore(Elaboratable):
     def __init__(self):
         self.uart = UARTOut(int(12e6/115200))
+        self.reset_gen = ClockResetGen()
 
     def elaborate(self, platform):
         pal_in0 = platform.request("pal_in", 0)
@@ -129,7 +163,6 @@ class PALDumpCore(Elaboratable):
 
         led_busy = platform.request("led", 0)
         led_done = platform.request("led", 1)
-        rst_button = platform.request("button", 0)
 
         in_count = Signal(len(Cat(pal_in0, pal_in1)))
 
@@ -137,6 +170,7 @@ class PALDumpCore(Elaboratable):
 
         m = Module()
         m.submodules.uart = self.uart
+        m.submodules.reset_gen = self.reset_gen
 
         m.d.comb += [
             pal_in0.eq(in_count[0:8]),
