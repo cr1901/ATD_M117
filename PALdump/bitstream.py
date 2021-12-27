@@ -127,6 +127,10 @@ class PALDumpCore(Elaboratable):
         pal_out = platform.request("pal_out", 0)
         oe = platform.request("oe", 0)
 
+        led_busy = platform.request("led", 0)
+        led_done = platform.request("led", 1)
+        rst_button = platform.request("button", 0)
+
         in_count = Signal(len(Cat(pal_in0, pal_in1)))
 
         ###
@@ -139,8 +143,11 @@ class PALDumpCore(Elaboratable):
             pal_in1.eq(in_count[8:12]),
             self.uart.dat_w[0:7].eq(pal_out),
             self.uart.dat_w[7].eq(0),
+
             # pal_out[7].eq(1) # OE for level shifter.
-            oe.eq(1)
+            oe.eq(1),
+
+            led_busy.eq(self.uart.busy),
         ]
 
         with m.FSM() as fsm:
@@ -160,6 +167,7 @@ class PALDumpCore(Elaboratable):
                     m.d.sync += in_count.eq(in_count + 1)
                     m.next = "READ"
 
+            m.d.comb += led_done.eq(fsm.ongoing("DONE"))
             with m.State("DONE"):
                 pass
 
