@@ -30,6 +30,11 @@ Though I have my doubts, I have uploaded my schematic and switch REing results
 here, in the hopes it is useful to someone else. I had fun and _willingly_ did
 this project, but I wouldn't want someone else to be in my position.
 
+## Documentation
+* [PAL Signals](signals.md)
+* [M117 Switches (and PAL Equations)](switches.md)
+* [High-level schematic](schematic.md)
+
 ## Gateware
 
 Although the main purpose of this repo is documentation, I have uploaded the
@@ -52,12 +57,13 @@ inputs or outputs.
 
 #### Connections
 
-`paldump` will dump the raw contents of the PAL's "data"
-over the UART in order from "address" 0 to 2047. I define each input pin as an
-"address" bit, and each output pin as a "data" bit using the below table. The
-table also shows how to connect each iCEbreaker pin to the PAL. **Pin Directions
-are from the POV of the PAL; make sure all PAL output pins are level shifted
-down to 3.3V**. A level shifter OE signal is provided in the table as well:
+`paldump` will dump the raw contents of the PAL's "data" over the UART in order
+from "address" 0 to 2047. I define each input pin as an "address" bit, and each
+output pin as a "data" bit using the below table. The table also shows how to
+connect each iCEbreaker pin to the PAL. PAL signals are described in [`signals.md`](signals.md).
+**Pin Directions are from the POV of the PAL; make sure all PAL output pins are
+level shifted down to 3.3V**. A level shifter OE signal is provided in the
+table as well:
 
 |Signal Name|Pin Direction|iCEBreaker Connection|PAL Pin|Address Bit|Data Bit|
 |-----------|-------------|---------------------|-------|-----------|--------|
