@@ -15,10 +15,10 @@ socketed; it took me several tries to find the bad chip :)!
 For the longest time, my M117 was broken, and I was not able to figure out why
 thanks to not knowing the correct switch settings, which I changed from working
 settings long ago. If the switch settings are on [TH99](http://www.uncreativelabs.de/th99/),
-I was unable to find them. I knew from when I got the card that it support 384kB
-of RAM, but 3 banks of 9 DRAM chips each implies that one bank with be 256kB
-41256-type DRAM. Not only did I never knew the switch settings, I forgot _long_
-ago which bank should house the 41256 DRAM :).
+I was unable to find them. I knew from when I got the card that it supported at least
+384kB of RAM, but 3 banks of 9 DRAM chips each implies that at least one bank will
+have 256kB 41256-type DRAM. Not only did I never knew the switch settings, I forgot
+_long_ ago which bank(s) should house the 41256 DRAM :).
 
 I thought trying to fix the card would be a good learning experience, so I RE'd
 a schematic to figure out the PAL connections (thank goodness for continuity testers!),
