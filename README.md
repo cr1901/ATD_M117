@@ -61,27 +61,27 @@ down to 3.3V**. A level shifter OE signal is provided in the table as well:
 
 |Signal Name|Pin Direction|iCEBreaker Connection|PAL Pin|Address Bit|Data Bit|
 |-----------|-------------|---------------------|-------|-----------|--------|
-|5V|PWR|+5V|20|N/A|N/A|
-|GND|PWR|GND|10|N/A|N/A|
-|SW 1|I|PMOD1A 1|1|A0|N/A|
-|SW 2|I|PMOD1A 2|2|A1|N/A|
-|SW 3|I|PMOD1A 3|3|A2|N/A|
-|A16|I|PMOD1A 4|4|A3|N/A|
-|A17|I|PMOD1A 7|5|A4|N/A|
-|A18|I|PMOD1A 8|6|A5|N/A|
-|A19|I|PMOD1A 9|7|A6|N/A|
-|Delayed /SMEM{R,W}|I|PMOD1A 10|8|A7|N/A|
-|/REFRESH|I|PMOD1B 1|9|A8|N/A|
-|/SMEMW|I|PMOD1B 2|18|A9|N/A|
-|/SMEMR|I|PMOD1B 3|11|A10|N/A|
-|/WE All Banks|O|PMOD2 1|19|N/A|D0|
-|/RAS All Banks|O|PMOD2 2|17|N/A|D1|
-|Data Bus Direction|O|PMOD2 3|16|N/A|D2|
-|/CAS Bank 1|O|PMOD2 4|15|N/A|D3|
-|/CAS Bank 2|O|PMOD2 7|14|N/A|D4|
-|/CAS Bank 3|O|PMOD2 8|13|N/A|D5|
-|DRAM A8 All Banks|O|PMOD2 9|12|N/A|D6|
-|Level Shifter OE|I|PMOD2 10|N/A|N/A|N/A|
+|5V         |PWR          |+5V                  |20     |N/A        |N/A     |
+|GND        |PWR          |GND                  |10     |N/A        |N/A     |
+|SW 1       |I            |PMOD1A 1             |1      |A0         |N/A     |
+|SW 2       |I            |PMOD1A 2             |2      |A1         |N/A     |
+|SW 3       |I            |PMOD1A 3             |3      |A2         |N/A     |
+|A16        |I            |PMOD1A 4             |4      |A3         |N/A     |
+|A17        |I            |PMOD1A 7             |5      |A4         |N/A     |
+|A18        |I            |PMOD1A 8             |6      |A5         |N/A     |
+|A19        |I            |PMOD1A 9             |7      |A6         |N/A     |
+|Delayed /SMEM{R,W}|I     |PMOD1A 10            |8      |A7         |N/A     |
+|/REFRESH   |I            |PMOD1B 1             |9      |A8         |N/A     |
+|/SMEMW     |I            |PMOD1B 2             |18     |A9         |N/A     |
+|/SMEMR     |I            |PMOD1B 3             |11     |A10        |N/A     |
+|/WE All Banks|O          |PMOD2 1              |19     |N/A        |D0      |
+|/RAS All Banks|O         |PMOD2 2              |17     |N/A        |D1      |
+|Data Bus Direction|O     |PMOD2 3              |16     |N/A        |D2      |
+|/CAS Bank 1|O            |PMOD2 4              |15     |N/A        |D3      |
+|/CAS Bank 2|O            |PMOD2 7              |14     |N/A        |D4      |
+|/CAS Bank 3|O            |PMOD2 8              |13     |N/A        |D5      |
+|DRAM A8 All Banks|O      |PMOD2 9              |12     |N/A        |D6      |
+|Level Shifter OE|I       |PMOD2 10             |N/A    |N/A        |N/A     |
 
 #### Usage
 
