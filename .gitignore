@@ -6,3 +6,5 @@ build/
 # Client outputs
 *.csv
 *.txt
+!adt.csv
+!adt.txt
