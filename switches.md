@@ -1,4 +1,4 @@
-# `ADT M117` Switches
+# `ATD M117` Switches
 
 If you're here, chances are you just want what each switch setting does. Use
 the following table as a quick reference, where "X" means "either 'ON' or 'OFF'

@@ -1,6 +1,6 @@
-# `ADT M117`
+# `ATD M117`
 
-The ADT Model M117 is an ancient memory expansion [ISA](https://en.wikipedia.org/wiki/Industry_Standard_Architecture) card for
+The ATD Model M117 is an ancient memory expansion [ISA](https://en.wikipedia.org/wiki/Industry_Standard_Architecture) card for
 IBM PC and compatibles, especially 8088-class systems. The M117 can expand a
 system with up to 384kB of 4164-type and 41256-type DRAM, and the address ranges that
 the card decodes is configurable using 4 DIP switches. Most of the card's intelligence
@@ -8,7 +8,7 @@ is inside a PAL16L8, whose behavior is configured using 3 of the 4 DIP switches.
 This is the main reason the card is rather small.
 
 ![](images/20220101_012324.jpg)
-Picture of my fully-populated ADT M117 card. The PAL is the 20 pin
+Picture of my fully-populated ATD M117 card. The PAL is the 20 pin
 socketed chip in the center-right. None of the chips were originally
 socketed; it took me several tries to find the bad chip :)!
 
@@ -92,7 +92,7 @@ table as well:
 #### Usage
 
 Once [`amaranth`](https://amaranth-lang.org/docs/amaranth/latest/install.html)
-and [`pyserial`](https://pyserial.readthedocs.io/en/latest/pyserial.html#installation)
+and [`pyserial`](https://pyserial.reATDhedocs.io/en/latest/pyserial.html#installation)
 are installed, you have to build the bitstream and upload it to your iCEBreaker.
 _I suggest building and uploading this gateware before wiring up connections to
 avoid input/output conflicts on the PMODs._
@@ -101,10 +101,10 @@ avoid input/output conflicts on the PMODs._
    upload the PAL dumping gateware to your iCEBreaker.
 2. Wire up your PAL extracted from your M117 to your iCEBreaker, including a
    level shifter for the PAL outputs.
-3. Run e.g. `python3 -m PALdump client COM10 adt.txt` or `python3 -m PALdump client --csv COM10 adt.csv`
+3. Run e.g. `python3 -m PALdump client COM10 ATD.txt` or `python3 -m PALdump client --csv COM10 ATD.csv`
    and follow the directions at the prompt; the reset button is "UBUTTON".
    Modify your serial port name as appropriate.
-4. Your dumped PAL will be available in `adt.txt` or `adt.csv` if both dumps
+4. Your dumped PAL will be available in `ATD.txt` or `ATD.csv` if both dumps
    matched.
    * `.txt` and `.csv` outputs are what were useful to me at the time. Perhaps
      in the future, I'll add PAL fusemaps or `.jed` output.
