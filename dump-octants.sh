@@ -1,3 +1,5 @@
+#!/bin/sh
+
 for s in `seq 12 18`; do
   echo "$s 0,0,0:"
   grep "^0,0,0" adt.csv | cut -d',' -f$s | tr --delete '\n'
