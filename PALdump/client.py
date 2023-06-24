@@ -1,14 +1,15 @@
 import serial
 import csv
 
+
 def csv_row(inp, out):
     # Modified from: https://stackoverflow.com/a/8898859
     def bits(number, len):
         curr = 0
         while curr < len:
-           yield number & 1
-           number = number >> 1
-           curr = curr + 1
+            yield number & 1
+            number = number >> 1
+            curr = curr + 1
 
     in_map = [
         "SW 1",
@@ -48,7 +49,6 @@ def csv_row(inp, out):
     return row_dict
 
 
-
 def do_PALdump(do_csv, port, out_file):
     print("First read... reset iCEBreaker now.")
     with serial.Serial(port, 115200, timeout=None) as ser:
@@ -62,7 +62,7 @@ def do_PALdump(do_csv, port, out_file):
         print("Read appears okay. Dumping contents into file...")
 
         if do_csv:
-            with open(out_file, "w") as csvfile:
+            with open(out_file, "w", newline="") as csvfile:
                 fieldnames = csv_row(None, None)
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
