@@ -2,6 +2,8 @@
 *.vcd
 __pycache__/
 build/
+target/
+Cargo.lock
 
 # Client outputs
 *.csv
